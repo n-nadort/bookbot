@@ -6,15 +6,15 @@ def get_book_text(filepath):
 
 
 # count words in book
-def word_count():
-	book_text = get_book_text("books/frankenstein.txt")
-	word_count = len(book_text.split())
-	return word_count
+def word_count(book_path):
+	book_text = get_book_text(book_path)
+	word_count_result = len(book_text.split())
+	return word_count_result
 
 
 # count characters in book
-def character_count():
-	book_text = get_book_text("books/frankenstein.txt")
+def character_count(book_path):
+	book_text = get_book_text(book_path)
 	char_count = {}
 	uncapped_text = book_text.lower()
 	for character in uncapped_text:

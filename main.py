@@ -1,15 +1,23 @@
+# sys module
+import sys
+if len(sys.argv) <2:
+	print("Usage: python3 main.py <path_to_book>")
+	sys.exit(1)
+else:
+	book_path = sys.argv[1]
+
 # import word count and character dictionary
 from stats import word_count, character_count, character_dictionary
 
 # handles the content of those files
-def main():
+def main(book_path):
 	print("============ BOOKBOT ============")
-	print("Analyzing book found at books/frankenstein.txt...")
+	print(f"Analyzing book found at {book_path}")
 	print("----------- Word Count ----------")
-	total_words = word_count()
+	total_words = word_count(book_path)
 	print(f"Found {total_words} total words")
 	print("--------- Character Count -------")
-	counts = character_count()
+	counts = character_count(book_path)
 	sorted_chars = character_dictionary(counts)
 	for entry in sorted_chars:
 		if entry["char"].isalpha():
@@ -17,4 +25,4 @@ def main():
 	print("============= END ===============")
 
 if __name__ == "__main__":
-    main()
+    main(book_path)
